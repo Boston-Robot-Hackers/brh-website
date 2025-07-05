@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+#root {
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 1000px) {
+    #root {
+        max-width: 80%;
+    }
+}
