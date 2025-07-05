@@ -28,9 +28,17 @@ export const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             const projectSnap = await getDocs(collection(db, 'projects'));
-            setProjects(projectSnap.docs.map((d) => d.data()));
+            setProjects(
+                projectSnap.docs
+                    .map((d) => d.data())
+                    .sort((a, b) => a.title.localeCompare(b.title))
+            );
             const memberSnap = await getDocs(collection(db, 'members'));
-            setMembers(memberSnap.docs.map((d) => d.data()));
+            setMembers(
+                memberSnap.docs
+                    .map((d) => d.data())
+                    .sort((a, b) => a.name.localeCompare(b.name))
+            );
         };
         fetchData().catch(console.error);
     }, []);
