@@ -97,33 +97,7 @@ export const Home = () => {
         { href: "#get-involved", label: "Get Involved" },
     ];
 
-    const actions = [
-        {
-            title: "Join the mailing list",
-            description:
-                "Don’t just join our mailing list – participate! Contribute what you know and help us grow a vibrant, helpful community.",
-            link: "https://forms.gle/XpLnf6C2p5gZQddr6",
-            linkLabel: "Sign up ›",
-        },
-        {
-            title: "Become a core member",
-            description:
-                "Ready to roll up your sleeves? Lead a project, run a bootcamp, or welcome new members – there’s a role for every talent.",
-            link: null,
-        },
-        {
-            title: "Showcase your project",
-            description:
-                "Robots, arms, submersibles, algorithms, tutorials – if it moves (or helps something move), we’d love to feature it!",
-            link: null,
-        },
-        {
-            title: "List your name on our member list",
-            description:
-                "Grow your network and help our community thrive. Opt‑in to an ‘Open for work’ list and link your résumé or LinkedIn.",
-            link: null,
-        },
-    ];
+
 
     return (
         <div className="font-sans text-gray-800">
@@ -132,7 +106,7 @@ export const Home = () => {
             <Welcome />
             <Projects projects={projects} />
             <Members members={members} />
-            <GetInvolved actions={actions} />
+            <GetInvolved />
             <Footer />
         </div>
     );
