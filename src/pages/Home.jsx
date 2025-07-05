@@ -6,6 +6,8 @@ import Projects from '../components/Projects.jsx';
 import Members from '../components/Members.jsx';
 import GetInvolved from '../components/GetInvolved.jsx';
 import Footer from '../components/Footer.jsx';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase.js';
 
 /**
  * Home – Boston Robot Hackers front‑page
@@ -16,79 +18,22 @@ import Footer from '../components/Footer.jsx';
  *
  * TODO:
  *  ▸ Replace `TODO_BANNER_IMAGE` with the real banner source.
- *  ▸ Implement `fillProjects()` with the full list of member projects.
+*  ▸ Fetch projects and members from Firestore.
  *  ▸ Add real URLs for the mailing‑list signup and Eventbrite events.
  */
 export const Home = () => {
     const [projects, setProjects] = useState([]);
+    const [members, setMembers] = useState([]);
 
-    /**
-     * Populates the project carousel.
-     *
-     * Each project record should follow:
-     * {
-     *   title: string,
-     *   link: string,
-     *   description: string,
-     *   image: string // URL or import
-     * }
-     */
-    const fillProjects = () => {
-        // TODO: Pull real projects (API, markdown, hard‑coded array, etc.)
-        setProjects([
-            {
-                title: "Pito’s Dome",
-                link: "https://example.com/pitos-dome",
-                description: "A fully 3‑D printed hemispherical robot with sensor array.",
-                image: "https://placehold.co/400x300?text=Pito%27s+Dome"
-            },
-            {
-                title: "Underwater ROV",
-                link: "https://example.com/rov",
-                description: "Low‑cost submersible exploring the Charles River.",
-                image: "https://placehold.co/400x300?text=Underwater+ROV"
-            },
-            {
-                title: "ROS‑based Arm",
-                link: "https://example.com/robot‑arm",
-                description: "Open‑source 6‑DOF arm driven by ROS 2.",
-                image: "https://placehold.co/400x300?text=ROS+Arm"
-            }
-        ]);
-    };
-
-    // ──────────────────────────────────────────────────────────────────────────────
     useEffect(() => {
-        fillProjects();
+        const fetchData = async () => {
+            const projectSnap = await getDocs(collection(db, 'projects'));
+            setProjects(projectSnap.docs.map((d) => d.data()));
+            const memberSnap = await getDocs(collection(db, 'members'));
+            setMembers(memberSnap.docs.map((d) => d.data()));
+        };
+        fetchData().catch(console.error);
     }, []);
-
-    // Sample member data; extend as needed
-    const members = [
-        {
-            name: "Jane Doe",
-            oneLiner: "Controls engineer & cat‑herder",
-            memberSince: "July 2024",
-            link: "https://linkedin.com/in/janedoe",
-            linkTitle: "LinkedIn",
-            openToWork: true
-        },
-        {
-            name: "Bobby Tables",
-            oneLiner: "ME grad student building swarm bots",
-            memberSince: "May 2025",
-            link: "https://github.com/bobbytables",
-            linkTitle: "GitHub",
-            openToWork: true
-        },
-        {
-            name: "Alex Q.",
-            oneLiner: "Full‑stack dev turned roboticist",
-            memberSince: "April 2025",
-            link: "https://alexq.dev",
-            linkTitle: "Portfolio",
-            openToWork: false
-        }
-    ];
 
     const links = [
         { href: "#welcome", label: "Home" },
