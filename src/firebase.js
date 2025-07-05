@@ -2,14 +2,15 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: "AIzaSyBGTI7jT8J8NIG5JptQoCmBUmtYs6FZo_E",
+  authDomain: "bostonrobothackers.firebaseapp.com",
+  projectId: "bostonrobothackers",
+  storageBucket: "bostonrobothackers.firebasestorage.app",
+  messagingSenderId: "447114955376",
+  appId: "1:447114955376:web:cf8dee8913c3a07e67c2b5",
+  measurementId: "G-Y3L0NJT50Y"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 export const db = getFirestore(app);
