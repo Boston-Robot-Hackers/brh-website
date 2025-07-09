@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Welcome = () => (
   <section id="welcome" className="relative py-20 px-6 text-center overflow-hidden">
-    <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[var(--sky-50)] via-[var(--bg)] to-transparent" />
+    <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[var(--sky-50)] via-[var(--sky-50)] to-transparent" />
     <motion.h1
       className="font-[Telex] text-5xl md:text-6xl mb-8 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[var(--blue)] via-[var(--sky)] to-[var(--indigo)] drop-shadow-sm"
       initial={{ opacity: 0, y: 40 }}

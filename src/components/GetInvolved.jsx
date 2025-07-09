@@ -27,7 +27,7 @@ export default function GetInvolvedSection() {
     return (
         <section id="get-involved" className="relative py-20 px-6 text-center overflow-hidden">
             {/* Background accent */}
-            <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[var(--bg)] via-[var(--sky-50)] to-transparent" />
+            <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[var(--sky-50)] via-[var(--sky-50)] to-transparent" />
 
             {/* Section heading */}
             <motion.h2
