@@ -27,11 +27,11 @@ export default function GetInvolvedSection() {
     return (
         <section id="get-involved" className="relative py-20 px-6 text-center overflow-hidden">
             {/* Background accent */}
-            <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-50 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[var(--sky-50)] via-[var(--sky-50)] to-transparent" />
 
             {/* Section heading */}
             <motion.h2
-                className="font-[Telex] text-4xl md:text-5xl mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-500 drop-shadow-sm"
+                className="font-[Telex] text-4xl md:text-5xl mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[var(--blue)] via-[var(--sky)] to-[var(--indigo)] drop-shadow-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -42,7 +42,7 @@ export default function GetInvolvedSection() {
 
             {/* Informational paragraphs */}
             <motion.div
-                className="mx-auto max-w-4xl text-lg md:text-xl leading-relaxed text-gray-700 space-y-8"
+                className="mx-auto max-w-4xl text-lg md:text-xl leading-relaxed text-muted space-y-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -50,7 +50,7 @@ export default function GetInvolvedSection() {
             >
                 {items.map((item) => (
                     <p key={item.title}>
-                        <span className="font-semibold text-blue-700">{item.title}:</span> {item.description}
+                        <span className="font-semibold text-blue">{item.title}:</span> {item.description}
                     </p>
                 ))}
             </motion.div>
@@ -65,7 +65,7 @@ export default function GetInvolvedSection() {
             >
                 <a
                     href="TODO_EVENTBRITE_LINK"
-                    className="group inline-flex items-center font-[Telex] text-base md:text-lg text-white bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 rounded-full shadow hover:brightness-110 transition-all"
+                    className="group inline-flex items-center font-[Telex] text-base md:text-lg text-light bg-gradient-to-r from-[var(--blue)] to-[var(--indigo)] px-6 py-3 rounded-full shadow hover:brightness-110 transition-all"
                 >
                     Attend an event
                     <span className="ml-2 transform transition-transform duration-200 group-hover:translate-x-1">›</span>
@@ -74,7 +74,7 @@ export default function GetInvolvedSection() {
                     href="https://forms.gle/XpLnf6C2p5gZQddr6"
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center font-[Telex] text-base md:text-lg text-white bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3 rounded-full shadow hover:brightness-110 transition-all"
+                    className="group inline-flex items-center font-[Telex] text-base md:text-lg text-light bg-gradient-to-r from-[var(--sky)] to-[var(--blue)] px-6 py-3 rounded-full shadow hover:brightness-110 transition-all"
                 >
                     Join the mailing list
                     <span className="ml-2 transform transition-transform duration-200 group-hover:translate-x-1">›</span>

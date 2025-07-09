@@ -1,5 +1,55 @@
 @import "tailwindcss";
 
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f9fafb;
+    --nav-bg: rgba(255, 255, 255, 0.7);
+    --footer-bg: #f3f4f6;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --text-muted: #374151;
+    --text-light: #ffffff;
+    --blue: #2563eb;
+    --indigo: #4f46e5;
+    --sky: #0ea5e9;
+    --green: #16a34a;
+    --sky-50: #f0f9ff;
+}
+
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --bg-alt: #1e293b;
+    --nav-bg: rgba(30, 41, 59, 0.7);
+    --footer-bg: #1f2937;
+    --card-bg: #334155;
+    --text: #f1f5f9;
+    --text-muted: #cbd5e1;
+    --blue: #3b82f6;
+    --indigo: #818cf8;
+    --sky: #38bdf8;
+    --sky-50: #082f49;
+    /* green and text-light stay the same */
+}
+
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="light"] { color-scheme: light; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.bg-nav { background-color: var(--nav-bg); }
+.bg-footer { background-color: var(--footer-bg); }
+.bg-alt { background-color: var(--bg-alt); }
+.bg-card { background-color: var(--card-bg); }
+.text-muted { color: var(--text-muted); }
+.text-blue { color: var(--blue); }
+.text-indigo { color: var(--indigo); }
+.text-sky { color: var(--sky); }
+.text-light { color: var(--text-light); }
+.bg-green { background-color: var(--green); }
+
 #root {
     margin: 0 auto;
     padding: 2rem;

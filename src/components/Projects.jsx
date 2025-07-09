@@ -17,7 +17,7 @@ const Projects = ({ projects }) => (
             href={project.link}
             target="_blank"
             rel="noreferrer"
-            className="block bg-white min-w-[260px] max-w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+            className="block bg-card min-w-[260px] max-w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <img src={project.image} alt={project.title} className="h-48 w-full object-cover" />
             <div className="p-6 space-y-2 text-center">
