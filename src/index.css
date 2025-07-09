@@ -27,6 +27,7 @@
     --blue: #3b82f6;
     --indigo: #818cf8;
     --sky: #38bdf8;
+    --sky-50: #082f49;
     /* green and text-light stay the same */
 }
 
@@ -57,5 +58,4 @@ body {
 
 @media (min-width: 1000px) {
     #root {
-        max-width: 80%;
-    }}
+        max-width: 80%;}
