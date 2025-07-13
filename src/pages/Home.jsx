@@ -24,13 +24,18 @@ import { db } from '../firebase.js';
 export const Home = () => {
     const [projects, setProjects] = useState([]);
     const [members, setMembers] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
             const projectSnap = await getDocs(collection(db, 'projects'));
             setProjects(
                 projectSnap.docs
-                    .map((d) => d.data())
+                    .map((d) => {
+                        const data = d.data();
+                        return {
+                            ...data,
+                            date: data.date?.toDate().toLocaleDateString('en-US') || '',
+                        };
+                    })
                     .sort((a, b) => a.title.localeCompare(b.title))
             );
             const memberSnap = await getDocs(collection(db, 'members'));
