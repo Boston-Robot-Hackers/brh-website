@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FaLinkedin } from 'react-icons/fa';
 
 const Members = ({ members }) => (
   <section id="members" className="py-14 px-6 bg-alt">
@@ -20,8 +21,7 @@ const Members = ({ members }) => (
           <div className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div className="p-6 flex flex-col items-center text-center space-y-2 flex-1">
               <h3 className="font-[Telex] text-xl">{member.name}</h3>
-              <p className="italic text-sm">Member since {member.memberSince}</p>
-              <p className="text-sm md:text-base leading-relaxed">{member.oneLiner}</p>
+              <p className="text-sm md:text-base leading-relaxed">{member.tagline}</p>
               <span className="text-blue font-semibold" aria-hidden>
                 {member.linkTitle} ›
               </span>
