@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Banner from '../components/Banner.jsx';
 import Navigation from '../components/Navigation.jsx';
 import Welcome from '../components/Welcome.jsx';
@@ -42,7 +43,7 @@ export const Home = () => {
             setMembers(
                 memberSnap.docs
                     .map((d) => d.data())
-                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .sort(() => Math.random() - 0.5)
             );
         };
         fetchData().catch(console.error);
@@ -63,9 +64,17 @@ export const Home = () => {
             <Navigation links={links} />
             <Welcome />
             <Projects projects={projects} />
-            <Members members={members} />
+            <Members members={members.slice(0, 6)} />
+            <div className="text-center py-14 px-6 bg-alt">
+                <Link to="/members" className="bg-blue text-light font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-dark transition-colors duration-300">
+                    See all members
+                </Link>
+            </div>
             <GetInvolved />
             <Footer />
         </div>
     );
 };
+
+
+export default Home;
