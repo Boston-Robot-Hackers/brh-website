@@ -61,3 +61,8 @@ body {
         max-width: 80%;
     }
 }
+
+/* Special class for overriding text decoration inside of markdown blocks */
+.decorate a {
+    text-decoration: underline !important;
+}
