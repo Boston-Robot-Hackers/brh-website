@@ -64,10 +64,10 @@ export default function GetInvolvedSection() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
                 <a
-                    href="TODO_EVENTBRITE_LINK"
+                    href="https://www.eventbrite.com/e/boston-robot-hackers-monthly-meeting-tickets-1489641520889?aff=oddtdtcreator"
                     className="group inline-flex items-center font-[Telex] text-base md:text-lg text-light bg-gradient-to-r from-[var(--blue)] to-[var(--indigo)] px-6 py-3 rounded-full shadow hover:brightness-110 transition-all"
                 >
-                    Attend an event
+                    Attend our first event
                     <span className="ml-2 transform transition-transform duration-200 group-hover:translate-x-1">›</span>
                 </a>
                 <a
