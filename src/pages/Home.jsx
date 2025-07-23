@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Banner from '../components/Banner.jsx';
 import Navigation from '../components/Navigation.jsx';
 import Welcome from '../components/Welcome.jsx';
@@ -26,20 +27,25 @@ import artisansImage from '../assets/images/artisans-asylum.png';
 export const Home = () => {
     const [projects, setProjects] = useState([]);
     const [members, setMembers] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
             const projectSnap = await getDocs(collection(db, 'projects'));
             setProjects(
                 projectSnap.docs
-                    .map((d) => d.data())
+                    .map((d) => {
+                        const data = d.data();
+                        return {
+                            ...data,
+                            date: data.date?.toDate().toLocaleDateString('en-US') || '',
+                        };
+                    })
                     .sort((a, b) => a.title.localeCompare(b.title))
             );
             const memberSnap = await getDocs(collection(db, 'members'));
             setMembers(
                 memberSnap.docs
                     .map((d) => d.data())
-                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .sort(() => Math.random() - 0.5)
             );
             
         };
@@ -66,9 +72,17 @@ export const Home = () => {
                 description: "Come to our first monhtly meeting held at the Artisans Asylum in Allston, Mass. ",
                 link: "https://www.eventbrite.com/e/boston-robot-hackers-monthly-meeting-tickets-1489641520889?aff=oddtdtcreator"}]}/>
             <Projects projects={projects} />
-            <Members members={members} />
+            <Members members={members.slice(0, 6)} />
+            <div className="text-center py-14 px-6 bg-alt">
+                <Link to="/members" className="bg-blue text-light font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-dark transition-colors duration-300">
+                    See all members
+                </Link>
+            </div>
             <GetInvolved />
             <Footer />
         </div>
     );
 };
+
+
+export default Home;
