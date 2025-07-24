@@ -9,6 +9,8 @@ import GetInvolved from '../components/GetInvolved.jsx';
 import Footer from '../components/Footer.jsx';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase.js';
+import LatestNews from '../components/LatestNews.jsx';
+import artisansImage from '../assets/images/artisans-asylum.png';
 
 /**
  * Home – Boston Robot Hackers front‑page
@@ -45,12 +47,14 @@ export const Home = () => {
                     .map((d) => d.data())
                     .sort(() => Math.random() - 0.5)
             );
+            
         };
         fetchData().catch(console.error);
     }, []);
 
     const links = [
         { href: "#welcome", label: "Home" },
+        { href: "#latest-news", label: "Latest News" },
         { href: "#projects", label: "Projects" },
         { href: "#members", label: "Members" },
         { href: "#get-involved", label: "Get Involved" },
@@ -63,6 +67,10 @@ export const Home = () => {
             <Banner />
             <Navigation links={links} />
             <Welcome />
+            <LatestNews latestNews={[{image: artisansImage, 
+                title: "Monthly Meeting",
+                description: "Come to our first monhtly meeting held at the Artisans Asylum in Allston, Mass. ",
+                link: "https://www.eventbrite.com/e/boston-robot-hackers-monthly-meeting-tickets-1489641520889?aff=oddtdtcreator"}]}/>
             <Projects projects={projects} />
             <Members members={members.slice(0, 6)} />
             <div className="text-center py-14 px-6 bg-alt">
